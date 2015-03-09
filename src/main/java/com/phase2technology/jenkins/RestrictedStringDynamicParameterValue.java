@@ -5,10 +5,14 @@ import org.kohsuke.stapler.export.Exported;
 
 import hudson.EnvVars;
 import hudson.model.AbstractBuild;
+import hudson.model.Run;
 import hudson.model.StringParameterValue;
 import hudson.util.VariableResolver;
+import java.util.logging.Logger;
+
 
 public class RestrictedStringDynamicParameterValue extends StringParameterValue {
+  private static final Logger LOG = Logger.getLogger(RestrictedStringDynamicParameterValue.class.getName());
   private static final long serialVersionUID = 1L;
   @Exported(visibility=4)
     public final String dynamicName;
@@ -26,15 +30,16 @@ public class RestrictedStringDynamicParameterValue extends StringParameterValue 
         this.dynamicValue = dynamicValue;
     }
 
+
     /**
      * Exposes the name/value as an environment variable.
      */
     @Override
-    public void buildEnvVars(AbstractBuild<?,?> build, EnvVars env) {
+    public void buildEnvironment(Run<?,?> build, EnvVars env) {
         env.put(name,value);
         env.put(dynamicName,dynamicValue);
     }
-
+    
     @Override
     public VariableResolver<String> createVariableResolver(AbstractBuild<?, ?> build) {
         return new VariableResolver<String>() {
