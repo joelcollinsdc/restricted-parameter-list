@@ -8,6 +8,7 @@ import hudson.model.AbstractBuild;
 import hudson.model.Run;
 import hudson.model.StringParameterValue;
 import hudson.util.VariableResolver;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 

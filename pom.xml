@@ -3,12 +3,12 @@
   <parent>
     <groupId>org.jenkins-ci.plugins</groupId>
     <artifactId>plugin</artifactId>
-    <version>1.602</version><!-- which version of Jenkins is this plugin built against? -->
+    <version>1.596</version><!-- which version of Jenkins is this plugin built against? -->
   </parent>
 
   <groupId>com.phase2technology.jenkins</groupId>
   <artifactId>restricted-parameter-list</artifactId>
-  <version>1.0</version>
+  <version>1.1</version>
   <packaging>hpi</packaging>
 
   <!-- get every artifact through maven.glassfish.org, which proxies all the artifacts that we need -->
